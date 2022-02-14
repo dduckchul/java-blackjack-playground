@@ -3,6 +3,7 @@ package nextstep.blackjack.card;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Objects;
 
 public class PlayingCard {
 
@@ -63,5 +64,25 @@ public class PlayingCard {
 	@Override
 	public String toString() {
 		return this.number.name() + " " + this.shape.name();
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(shape, number);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if(this == obj){
+			return true;
+		}
+
+		if(obj == null || getClass() != obj.getClass()){
+			return false;
+		}
+
+		PlayingCard card = (PlayingCard)obj;
+
+		return this.shape == card.getShape() && this.number == card.getNumber();
 	}
 }

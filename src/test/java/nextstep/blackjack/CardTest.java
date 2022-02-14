@@ -1,14 +1,24 @@
 package nextstep.blackjack;
 
+import static org.assertj.core.api.Assertions.*;
+
 import java.util.List;
 
 import org.junit.jupiter.api.Test;
 
+import nextstep.blackjack.card.Number;
 import nextstep.blackjack.card.PlayingCard;
-
-import static org.assertj.core.api.Assertions.assertThat;
+import nextstep.blackjack.card.Shape;
 
 public class CardTest {
+
+	@Test
+	public void cardTest(){
+		List<PlayingCard> deck = PlayingCard.makeDeck();
+		PlayingCard card = new PlayingCard(Shape.CLUB, Number.ONE);
+
+		assertThat(card).isEqualTo(deck.get(0));
+	}
 
 	@Test
 	public void deckMakeTest(){
@@ -24,6 +34,4 @@ public class CardTest {
 			System.out.println(card.toString());
 		}
 	}
-
-
 }
