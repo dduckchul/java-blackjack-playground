@@ -34,8 +34,8 @@ public class PlayerTest {
 		PlayingCard testCard = new PlayingCard(Shape.DIAMOND, Number.KING);
 
 		Player p1 = new Player("철수");
-		p1.addCard(card);
+		p1.getHands().addCard(card);
 
-		assertThat(p1.getHand().get(0)).isEqualTo(testCard);
+		assertThat(p1.getHands().getCards().get(0)).isEqualTo(testCard);
 	}
 }

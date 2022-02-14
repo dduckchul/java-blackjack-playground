@@ -8,6 +8,5 @@ public interface CardGame {
 	public void makeEntry(String names);
 	public void setCards();
 	public void betMoney();
-	public void giveCard(Player player);
 	public void calculateBets(List<Player> players);
 }

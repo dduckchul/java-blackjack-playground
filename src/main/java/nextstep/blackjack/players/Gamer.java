@@ -1,13 +1,10 @@
 package nextstep.blackjack.players;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import nextstep.blackjack.card.PlayingCard;
+import nextstep.blackjack.card.Hands;
 
 abstract class Gamer {
 	private int betMoney;
-	private List<PlayingCard> hand = new ArrayList<>();
+	private Hands hands = new Hands();
 
 	abstract public String getName();
 
@@ -19,11 +16,7 @@ abstract class Gamer {
 		this.betMoney = betMoney;
 	}
 
-	public void addCard(PlayingCard card){
-		hand.add(card);
-	}
-
-	public List<PlayingCard> getHand(){
-		return this.hand;
+	public Hands getHands() {
+		return hands;
 	}
 }
