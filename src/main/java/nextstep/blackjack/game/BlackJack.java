@@ -8,6 +8,7 @@ import java.util.List;
 import nextstep.blackjack.card.Deck;
 import nextstep.blackjack.card.PlayingCard;
 import nextstep.blackjack.players.Dealer;
+import nextstep.blackjack.players.Gamer;
 import nextstep.blackjack.players.Player;
 import nextstep.blackjack.view.InputView;
 
@@ -46,6 +47,25 @@ public class BlackJack implements CardGame {
 		for(Player player : players){
 			int money = InputView.bettingInputMsg("");
 			player.setBetMoney(money);
+		}
+	}
+
+	@Override
+	public void playGame() {
+		for(Player player : players){
+			this.hitCards(player, INITIAL_CARDS_DRAW_NUM);
+		}
+
+		this.hitCards(dealer, INITIAL_CARDS_DRAW_NUM);
+	}
+
+	private void hitCard(Gamer gamer){
+		gamer.addCard(deck.drawCard());
+	}
+
+	private void hitCards(Gamer gamer, int loop){
+		for(int i = 0; i < loop; i++){
+			this.hitCard(gamer);
 		}
 	}
 

@@ -1,8 +1,9 @@
 package nextstep.blackjack.players;
 
-import nextstep.blackjack.card.Hands;
+import nextstep.blackjack.game.Hands;
+import nextstep.blackjack.card.PlayingCard;
 
-abstract class Gamer {
+public abstract class Gamer {
 	private int betMoney;
 	private Hands hands = new Hands();
 
@@ -18,5 +19,9 @@ abstract class Gamer {
 
 	public Hands getHands() {
 		return hands;
+	}
+
+	public void addCard(PlayingCard card){
+		hands.addCard(card);
 	}
 }

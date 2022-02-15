@@ -1,5 +1,7 @@
 package nextstep.blackjack.card;
 
+import static nextstep.blackjack.util.BlackJackGameUtil.*;
+
 public enum Number {
 	ONE(1),
 	TWO(2),
@@ -22,7 +24,11 @@ public enum Number {
 		this.number = number;
 	}
 
-	public int getNumber() {
+	public int getNumber(int sum) {
+		if(this == ONE && sum < BLACK_JACK_ACE_VALUE){
+			return BLACK_JACK_ACE_VALUE;
+		}
+
 		return number;
 	}
 }
